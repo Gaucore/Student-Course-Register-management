@@ -8,151 +8,178 @@ public class  Main{
         CourseService courseService = new CourseService();
         EnrollmentService enrollmentService =new EnrollmentService(studentService, courseService);
         ReportService reportService  = new ReportService(studentService, courseService, enrollmentService);
-        int choice ;
+        Menu menu = new Menu(studentService,courseService,enrollmentService,reportService);
 
-        do { 
+        menu.start();
+        // int choice ;
 
-            System.out.println();
-            System.out.println("==========================================");
-            System.out.println("Student Course Registration");
-            System.out.println("=========================================");
+        // do { 
 
-            System.out.println("----------------- Student -----------------");
-            System.out.println("1.Add Student");
-            System.out.println("2.View Student");
-            System.out.println("3.Search Student");
-            System.out.println("4.Update Student");
-            System.out.println("5.Delete Student");
+        //     System.out.println();
+        //     System.out.println("==========================================");
+        //     System.out.println("Student Course Registration");
+        //     System.out.println("=========================================");
 
-            System.out.println("------------------- Course -------------------");
-            System.out.println("6.Add Course");
-            System.out.println("7.View Course");   
-            System.out.println("8.Search Course");
-            System.out.println("9.Update Course");   
-            System.out.println("10.Delete Course");
+        //     System.out.println("----------------- Student -----------------");
+        //     System.out.println("1.Add Student");
+        //     System.out.println("2.View Student");
+        //     System.out.println("3.Search Student");
+        //     System.out.println("4.Update Student");
+        //     System.out.println("5.Delete Student");
+        //     System.out.println("6.Sort Students By ID");
+        //     System.out.println("7.Sort Students By Name");
 
-            System.out.println("---------------- Enrollment ----------------");  
-            System.out.println("11.Add Enrollment"); 
-            System.out.println("12.View Enrollment"); 
-            System.out.println("13.Remove Enrollment"); 
 
-            System.out.println("----------------- Reports ----------------");
-            System.out.println("14.Total Students");
-            System.out.println("15.Total Courses");
-            System.out.println("16.Total Enrollments");
-            System.out.println("17.Paid Students");
-            System.out.println("18.Pending Fees Students");
-            System.out.println("19.Total Paid Students");
-            System.out.println("20.Total Pending Students");
-            System.out.println("21.Students by Course");
-            System.out.println("22.Course by Student");
-            System.out.println("23.Institute Summary");
 
-            System.out.println("24.Exit");
-            System.out.println("Enter the your choice :-");
-            choice = sc.nextInt();
-            switch (choice) {
-                case 1:
-                    studentService.addStuddent();;
-                    break;
+        //     System.out.println("------------------- Course -------------------");
+        //     System.out.println("8.Add Course");
+        //     System.out.println("9.View Course");   
+        //     System.out.println("10.Search Course");
+        //     System.out.println("11.Update Course");   
+        //     System.out.println("12.Delete Course");
+        //     System.out.println("13.Sort Course By Fees");
+        //     System.out.println("14.Sort Course By Durations");
 
-                case 2:
-                    studentService.viewStudent();;
-                    break;
 
-                case 3:
-                    studentService.searchStudent();
-                    break;
+
+        //     System.out.println("---------------- Enrollment ----------------");  
+        //     System.out.println("15.Add Enrollment"); 
+        //     System.out.println("16.View Enrollment"); 
+        //     System.out.println("17.Remove Enrollment"); 
+
+        //     System.out.println("----------------- Reports ----------------");
+        //     System.out.println("18.Total Students");
+        //     System.out.println("19.Total Courses");
+        //     System.out.println("20.Total Enrollments");
+        //     System.out.println("21.Paid Students");
+        //     System.out.println("22.Pending Fees Students");
+        //     System.out.println("23.Total Paid Students");
+        //     System.out.println("24.Total Pending Students");
+        //     System.out.println("25.Students by Course");
+        //     System.out.println("26.Course by Student");
+        //     System.out.println("27.Institute Summary");
+
+        //     System.out.println("28.Exit");
+        //     System.out.println("Enter the your choice :-");
+        //     choice = sc.nextInt();
+        //     switch (choice) {
+        //         case 1:
+        //             studentService.addStuddent();;
+        //             break;
+
+        //         case 2:
+        //             studentService.viewStudent();;
+        //             break;
+
+        //         case 3:
+        //             studentService.searchStudent();
+        //             break;
                 
-                case 4:
-                    studentService.updateStudent();
-                    break;
+        //         case 4:
+        //             studentService.updateStudent();
+        //             break;
 
-                case 5:
-                    studentService.deleteStudent();
-                    break;
+        //         case 5:
+        //             studentService.deleteStudent();
+        //             break;
 
-                case 6:
-                    courseService.addCourse();
-                    break;
+        //         case 6:
+        //             studentService.sortStudentById();
+        //             break;
+                
+        //         case 7:
+        //             studentService.sortStudentsByName();
+        //             break;
 
-                case 7:
-                    courseService.viewCourse();
-                    break;
+        //         case 8:
+        //             courseService.addCourse();
+        //             break;
 
-                 case 8:
-                    courseService.searchCourse();
-                    break;
+        //         case 9:
+        //             courseService.viewCourse();
+        //             break;
 
-                case 9:
-                    courseService.updateCourse();
-                    break;
+        //          case 10:
+        //             courseService.searchCourse();
+        //             break;
 
-                case 10:
-                    courseService.deleteCourse();
-                    break;
+        //         case 11:
+        //             courseService.updateCourse();
+        //             break;
 
-                case 11:
-                    enrollmentService.registerStudent();
-                    break;
+        //         case 12:
+        //             courseService.deleteCourse();
+        //             break;
 
-                 case 12:
-                    enrollmentService.viewEnrollment();
-                    break;
+        //         case 13:
+        //             courseService.sortCourseByFees();
+        //             break;
 
-                case 13:
-                    enrollmentService.removeEnrollment();
-                    break;
+        //         case 14:
+        //             courseService.sortCourseByDuration();
+        //             break;
 
-                case 14:
-                    reportService.totalStudent();
-                    break;
+        //         case 15:
+        //             enrollmentService.registerStudent();
+        //             break;
 
-                case 15:
-                    reportService.totalCourse();
-                    break;
+        //          case 16:
+        //             enrollmentService.viewEnrollment();
+        //             break;
 
-                case 16:
-                    reportService.totalEnrollment();
-                    break;
+        //         case 17:
+        //             enrollmentService.removeEnrollment();
+        //             break;
 
-                case 17:
-                    reportService.paidStudentReport();
-                    break;
+        //         case 18:
+        //             reportService.totalStudent();
+        //             break;
 
-                case 18:
-                    reportService.pendingFeeReport();
-                    break;
+        //         case 19:
+        //             reportService.totalCourse();
+        //             break;
 
-                case 19:
-                    reportService.totalPaidStudents();
-                    break;
+        //         case 20:
+        //             reportService.totalEnrollment();
+        //             break;
 
-                case 20:
-                    reportService.totalPendingStudent();
-                    break;
+        //         case 21:
+        //             reportService.paidStudentReport();
+        //             break;
 
-                case 21:
-                    reportService.studentByCourse();
-                    break;
+        //         case 22:
+        //             reportService.pendingFeeReport();
+        //             break;
 
-                case 22:
-                    reportService.courseByStudent();
-                    break;
+        //         case 23:
+        //             reportService.totalPaidStudents();
+        //             break;
 
-                case 23:
-                    reportService.instituteSummary();
-                    break;
+        //         case 24:
+        //             reportService.totalPendingStudent();
+        //             break;
 
-                case 24:
-                    System.out.println("Thank you......");
-                    break;
+        //         case 25:
+        //             reportService.studentByCourse();
+        //             break;
 
-                default:
-                    System.out.println("Invalid Input");
-            }
+        //         case 26:
+        //             reportService.courseByStudent();
+        //             break;
+
+        //         case 27:
+        //             reportService.instituteSummary();
+        //             break;
+
+        //         case 28:
+        //             System.out.println("Thank you......");
+        //             break;
+
+        //         default:
+        //             System.out.println("Invalid Input");
+        //     }
 
             
-        } while (choice != 24);
+        // } while (choice != 28);
     }
 }

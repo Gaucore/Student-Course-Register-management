@@ -1,4 +1,4 @@
-public class Course {
+public class Course  {
     private int courseId;
     private String courseName;
     private int duration;
@@ -50,5 +50,7 @@ public class Course {
         System.out.println("Fees :-"+fees);
 
     }
+
+
 
 }

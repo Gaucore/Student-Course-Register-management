@@ -1,5 +1,6 @@
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class StudentService{
@@ -93,6 +94,16 @@ public class StudentService{
         return null;
     }
 
+    public Student getStudentById(int id) throws StudentNotFoundException {
+
+            Student student = findStudentById(id);
+            if(student == null){
+                throw new StudentNotFoundException("Student ID " + id + " Not Found.");
+            }
+
+            return student;
+    }
+
     public void updateStudent(){
         try {
             System.out.println("Enter Student ID :-");
@@ -150,6 +161,30 @@ public class StudentService{
             System.out.println("Invalid Input");
             sc.nextLine();
         }
+    }
+
+
+    public void sortStudentById(){
+        if(students.isEmpty()){
+            System.out.println("No Student Found .");
+            return;
+        }
+        Collections.sort(students);
+        System.out.println("\n================== Student Sorted By ID =================");
+        viewStudent();
+    }
+
+
+    public void sortStudentsByName() {
+
+        if (students.isEmpty()) {
+            System.out.println("No Students Found.");
+            return;
+        }
+        Collections.sort(students,new StudentNameComparator());
+        System.out.println("\n====== Students Sorted By Name ======\n");
+        viewStudent();
+
     }
     
 

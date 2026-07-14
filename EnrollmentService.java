@@ -24,21 +24,22 @@ public class EnrollmentService{
         try {
             System.out.println("Enter Student ID :-");
             int sid = sc.nextInt();
-            Student student = studentService.findStudentById(sid);
+            Student student = studentService.getStudentById(sid);
             
-            if(student == null){
-                System.out.println("Student not found");
-                return;
-            }
+            // if(student == null){
+            //     System.out.println("Student not found");
+            //     return;
+            // }
 
             System.out.println("Enter Coourse ID :-");
             int cid =sc.nextInt();
-            Course course = courseService.findCourseById(cid);
+            // Course course = courseService.findCourseById(cid);
+            Course course = courseService.getCourseById(cid);
 
-            if(course == null){
-                System.out.println("Course not found");
-                return;
-            }
+            // if(course == null){
+            //     System.out.println("Course not found");
+            //     return;
+            // }
 
             for(Enrollment enrollment : enrollments){
                 if(enrollment.getStudentId()==sid &&
@@ -61,9 +62,10 @@ public class EnrollmentService{
             System.out.println("Enrollment added Successfully.");
 
 
-        } catch (Exception e) {
-            System.out.println("Invalid Input");
-            sc.nextLine();
+        } catch (StudentNotFoundException | CourseNotFoundException   e) {
+            System.out.println(e.getMessage());
+            // sc.nextLine();
+            // return;
         }
     }
 

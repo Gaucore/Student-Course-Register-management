@@ -1,4 +1,6 @@
-public class Student {
+
+
+public class Student implements Comparable<Student> {
     private int studentId;
     private String studentName;
     private int age;
@@ -62,5 +64,11 @@ public class Student {
         System.out.println("Age :-"+age);
         System.out.println("Email :-"+email);
         System.out.println("Mobile :-"+mobile);
+    }
+
+
+    @Override
+    public int compareTo(Student other){
+        return this.studentId - other.studentId;
     }
 }

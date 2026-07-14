@@ -1,5 +1,6 @@
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class CourseService {
@@ -88,6 +89,14 @@ public class CourseService {
             return null;
         }
 
+        public Course getCourseById(int id) throws CourseNotFoundException{
+                Course course = findCourseById(id);
+                if(course == null){
+                    throw new CourseNotFoundException("Course ID " + id + " Not Found.");
+                }
+                return course;
+        }
+
         public void updateCourse(){
             try {
                 System.out.println("Enter Course ID :-");
@@ -140,4 +149,29 @@ public class CourseService {
                 sc.nextLine();
             }
         }
+
+
+        public void sortCourseByFees(){
+            if(courses.isEmpty()){
+                System.out.println("No Course Found.");
+                return;
+            }
+
+            Collections.sort(courses,new CourseFeeComparator());
+            System.out.println("\n=================== Courses Sorted By Fees =====================");
+            viewCourse();
+
+        }
+
+        public void sortCourseByDuration(){
+            if(courses.isEmpty()){
+                System.out.println("No Course Found.");
+                return;
+            }
+
+            Collections.sort(courses,new CourseDurationComparator());
+            System.out.println("\n ========================== Course Sorted By Duration =======================");
+            viewCourse();
+        }
+
 }
